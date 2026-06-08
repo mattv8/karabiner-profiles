@@ -1,0 +1,4288 @@
+{
+  "global": {
+    "show_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "Directly Map F8 to Spotify (Overrides fn_function_keys)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f8",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "if ! pgrep -x \"Spotify\" > /dev/null; then open -a \"Spotify\"; else osascript -e 'tell application \"Spotify\" to playpause'; fi"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Remap Play/Pause to Spotify (Force Catch)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f9",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "echo 'Triggered f9 rule' >> /tmp/karabiner_test.log; if ! pgrep -x \"Spotify\" > /dev/null; then open -a \"Spotify\"; else osascript -e 'tell application \"Spotify\" to playpause'; fi"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f8",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "echo 'Triggered f8 rule' >> /tmp/karabiner_test.log; if ! pgrep -x \"Spotify\" > /dev/null; then open -a \"Spotify\"; else osascript -e 'tell application \"Spotify\" to playpause'; fi"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Remap Media Keys to Spotify",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "consumer_key_code": "play_or_pause",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "echo 'Triggered play_or_pause' >> /tmp/karabiner_test.log; if ! pgrep -x \"Spotify\" > /dev/null; then open -a \"Spotify\"; else osascript -e 'tell application \"Spotify\" to playpause'; fi"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Disable Right Command + Arrow Keys",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "up_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "down_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "vk_none"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Numpad fix (Force standard numbers)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_0",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "0"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_1",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_2",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "2"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_3",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "3"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_4",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "4"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_5",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_6",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "6"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_7",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_8",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "8"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_9",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "9"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_period",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_slash",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "slash"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_hyphen",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_enter",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_equal_sign",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_asterisk",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_plus",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Logitech G950 Alt+Space opens Spotlight",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "option"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Logitech G950 keypad passthrough",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_1"
+                },
+                "to": [
+                  {
+                    "key_code": "keypad_1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_7"
+                },
+                "to": [
+                  {
+                    "key_code": "keypad_7"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_plus"
+                },
+                "to": [
+                  {
+                    "key_code": "keypad_plus"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_enter"
+                },
+                "to": [
+                  {
+                    "key_code": "keypad_enter"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_num_lock"
+                },
+                "to": [
+                  {
+                    "key_code": "keypad_num_lock"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Logitech G950 terminal keypad aliases",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_1"
+                },
+                "to": [
+                  {
+                    "key_code": "1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_7"
+                },
+                "to": [
+                  {
+                    "key_code": "7"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_plus"
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "keypad_enter"
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "vendor_id": 1133,
+                        "product_id": 50497
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Nano command-letter to control-letter bridge",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "g",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "y",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Office Home End text navigation",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home"
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end"
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Finder click selection shortcuts",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "pointing_button": "button1",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "lazy": true
+                  },
+                  {
+                    "pointing_button": "button1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.finder$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "pointing_button": "button1",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "lazy": true
+                  },
+                  {
+                    "key_code": "left_shift",
+                    "lazy": true
+                  },
+                  {
+                    "pointing_button": "button1"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.finder$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Ctrl+T actions",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "t",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "d",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "file_paths": [
+                      "iTerm\\.app"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "d",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "file_paths": [
+                      "iTerm\\.app"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Home/End behavior",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Ctrl+R passthrough",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal nano Ctrl commands passthrough",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "g",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "y",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Ctrl+C passthrough",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal Ctrl+L passthrough",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Windows system shortcuts",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "print_screen",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Activity Monitor\""
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "control",
+                      "command"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Windows browser shortcuts",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$",
+                      "^com\\.vscodium$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^com\\.microsoft\\.VSCode$",
+                      "^com\\.microsoft\\.VSCodeInsiders$",
+                      "^com\\.vscodium$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "e",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command",
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "command",
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "y",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Safari$",
+                      "^com\\.microsoft\\.edgemac$",
+                      "^com\\.google\\.Chrome$",
+                      "^com\\.google\\.Chrome\\.canary$",
+                      "^com\\.brave\\.Browser$",
+                      "^org\\.mozilla\\.firefox$",
+                      "^org\\.mozilla\\.firefoxdeveloperedition$",
+                      "^org\\.chromium\\.Chromium$",
+                      "^com\\.vivaldi\\.Vivaldi$",
+                      "^com\\.operasoftware\\.Opera$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Microsoft Office Home/End behavior",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Windows navigation keys outside terminals",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "home",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^com\\.microsoft\\.teams2$",
+                      "^com\\.microsoft\\.teams$",
+                      "^com\\.microsoft\\.Outlook$",
+                      "^com\\.microsoft\\.Word$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "end",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "delete_forward",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Windows editing shortcuts outside terminals",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "t",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "shift"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "s",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "t",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^com\\.lemonmojo\\.RoyalTSX\\.App$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "x",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^com\\.googlecode\\.iterm2$",
+                      "^net\\.kovidgoyal\\.kitty$",
+                      "^co\\.zeit\\.hyper$",
+                      "^com\\.github\\.wez\\.wezterm$",
+                      "^com\\.mitchellh\\.ghostty$",
+                      "^com\\.alacritty$",
+                      "^io\\.alacritty$"
+                    ],
+                    "type": "frontmost_application_unless"
+                  }
+                ],
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "z",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
+        {
+          "identifiers": {
+            "is_pointing_device": true,
+            "product_id": 50489,
+            "vendor_id": 1133
+          },
+          "ignore": false,
+          "mouse_flip_vertical_wheel": true
+        },
+        {
+          "identifiers": {
+            "is_pointing_device": true,
+            "product_id": 50497,
+            "vendor_id": 1133
+          },
+          "ignore": false
+        }
+      ],
+      "name": "Windows Mode",
+      "selected": true,
+      "simple_modifications": [
+        {
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "right_option"
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ]
+        }
+      ],
+      "virtual_hid_keyboard": {
+        "keyboard_type_v2": "ansi"
+      },
+      "fn_function_keys": {
+        "f1": "display_brightness_decrement",
+        "f2": "display_brightness_increment",
+        "f3": "mission_control",
+        "f4": "launchpad",
+        "f5": "illumination_decrement",
+        "f6": "illumination_increment",
+        "f7": "rewind",
+        "f8": "play_or_pause",
+        "f9": "fastforward",
+        "f10": "mute",
+        "f11": "volume_decrement",
+        "f12": "volume_increment"
+      }
+    }
+  ]
+}
