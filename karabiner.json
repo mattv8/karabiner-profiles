@@ -1508,7 +1508,8 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^dev\\.openchamber\\.desktop$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -1577,7 +1578,8 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^dev\\.openchamber\\.desktop$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -1898,7 +1900,8 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^dev\\.openchamber\\.desktop$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1962,7 +1965,8 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$"
+                                            "^io\\.alacritty$",
+                                            "^dev\\.openchamber\\.desktop$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
