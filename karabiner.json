@@ -1508,8 +1508,7 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$",
-                                            "^dev\\.openchamber\\.desktop$"
+                                            "^io\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -1578,8 +1577,7 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$",
-                                            "^dev\\.openchamber\\.desktop$"
+                                            "^io\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -1712,6 +1710,53 @@
                                 "to": [
                                     {
                                         "key_code": "r",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "OpenChamber Windows edit and terminal shortcuts",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^dev\\.openchamber\\.desktop$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^dev\\.openchamber\\.desktop$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
                                         "modifiers": ["control"]
                                     }
                                 ],
@@ -1900,8 +1945,7 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$",
-                                            "^dev\\.openchamber\\.desktop$"
+                                            "^io\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1965,8 +2009,7 @@
                                             "^com\\.github\\.wez\\.wezterm$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^com\\.alacritty$",
-                                            "^io\\.alacritty$",
-                                            "^dev\\.openchamber\\.desktop$"
+                                            "^io\\.alacritty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
